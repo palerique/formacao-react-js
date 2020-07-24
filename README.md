@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/palerique/formacao-react-js.svg?style=svg)](https://circleci.com/gh/palerique/formacao-react-js)
+[![GitlabCI](https://gitlab.com/palerique/formacao-react-js/badges/master/pipeline.svg)](https://gitlab.com/palerique/formacao-react-js)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
