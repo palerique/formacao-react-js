@@ -1,6 +1,7 @@
 {
   "name": "@palerique/formacao-react-js",
   "version": "0.1.0",
+  "prettier": "prettier-airbnb-config",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -45,7 +46,8 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "2.0.5"
+    "prettier": "^2.0.5",
+    "prettier-airbnb-config": "^1.0.0"
   },
   "husky": {
     "hooks": {

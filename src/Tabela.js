@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const TableHead = () => (
   <thead>
@@ -11,7 +11,7 @@ const TableHead = () => (
   </thead>
 );
 
-const TableBody = ({ autores, removeAutor }) => {
+const TableBody = ({autores, removeAutor}) => {
   const linhas = autores.map((linha, index) => (
     <tr key={linha.nome - linha.titulo}>
       <td>{linha.nome}</td>
@@ -29,7 +29,7 @@ const TableBody = ({ autores, removeAutor }) => {
 };
 
 function Tabela(props) {
-  const { autores, removeAutor } = props;
+  const {autores, removeAutor} = props;
 
   return (
     <table>
