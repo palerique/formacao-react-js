@@ -10,9 +10,10 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
+            - run: npx prettier --check .
             - run: npm run lint
             - run: npm test
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  build-and-test:
+    jobs:
+      - build-and-test
