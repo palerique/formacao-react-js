@@ -31,36 +31,57 @@ class Formulario extends Component {
     const {nome, livro, preco} = this.state;
     return (
       <form>
-        <label htmlFor="nome">
-          Nome
-          <input id="nome" type="text" name="nome" value={nome} onChange={this.escutadorDeInput} />
-        </label>
+        <div className="row">
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="nome">
+              Nome
+              <input
+                className="validate"
+                id="nome"
+                type="text"
+                name="nome"
+                value={nome}
+                onChange={this.escutadorDeInput}
+              />
+            </label>
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="livro">
+              Livro
+              <input
+                className="validate"
+                id="livro"
+                type="text"
+                name="livro"
+                value={livro}
+                onChange={this.escutadorDeInput}
+              />
+            </label>
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="preco">
+              Preço
+              <input
+                className="validate"
+                id="preco"
+                type="text"
+                name="preco"
+                value={preco}
+                onChange={this.escutadorDeInput}
+              />
+            </label>
+          </div>
+        </div>
 
-        <label htmlFor="livro">
-          Livro
-          <input
-            id="livro"
-            type="text"
-            name="livro"
-            value={livro}
-            onChange={this.escutadorDeInput}
-          />
-        </label>
-
-        <label htmlFor="preco">
-          Preço
-          <input
-            id="preco"
-            type="text"
-            name="preco"
-            value={preco}
-            onChange={this.escutadorDeInput}
-          />
-        </label>
-
-        <button onClick={this.submitFormulario} type="button">
-          Salvar
-        </button>
+        <div className="col offset-s4 s4">
+          <button
+            onClick={this.submitFormulario}
+            className="btn waves-effect waves-light indigo lighten-2 right"
+            type="button"
+          >
+            Salvar
+          </button>
+        </div>
       </form>
     );
   }

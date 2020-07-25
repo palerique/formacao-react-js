@@ -21,7 +21,11 @@ const TableBody = ({autores, removeAutor}) => {
         <td>{linha.livro}</td>
         <td>{linha.preco}</td>
         <td>
-          <button type="submit" onClick={() => removeAutor(index)}>
+          <button
+            className="waves-effect waves-light indigo lighten-2 btn"
+            type="submit"
+            onClick={() => removeAutor(index)}
+          >
             Remover
           </button>
         </td>
@@ -36,7 +40,7 @@ function Tabela(props) {
   const {autores, removeAutor} = props;
 
   return (
-    <table>
+    <table className="centered highlight">
       <TableHead />
       <TableBody autores={autores} removeAutor={removeAutor} />
     </table>
