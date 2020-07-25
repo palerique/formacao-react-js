@@ -4,6 +4,7 @@ import './App.css';
 import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
+import PopUp from './PouUp';
 
 class App extends Component {
   constructor(props, context) {
@@ -39,12 +40,14 @@ class App extends Component {
     this.setState({
       autores: autores.filter((autor, posAtual) => posAtual !== index),
     });
+    PopUp.exibeMensagem('error', 'Autor removido com sucesso!');
   };
 
   escutadorDeSubmit = autor => {
     const {autores} = this.state;
     const novosAutores = [...autores, autor];
     this.setState({autores: novosAutores});
+    PopUp.exibeMensagem('success', 'Autor adicionado com sucesso!');
   };
 
   render() {
