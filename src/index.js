@@ -15,7 +15,7 @@ ReactDOM.render(
       <Route path="/" exact component={App} />
       <Route path="/sobre" component={Sobre} />
       <Route path="/livros" component={Livros} />
-      <Route path="/autores" component={Autores} />
+      <Route path="/nomes" component={Autores} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>,

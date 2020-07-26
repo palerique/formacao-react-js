@@ -14,9 +14,9 @@ const TableHead = () => {
 };
 
 const TableBody = ({autores, removeAutor}) => {
-  const linhas = autores.map((linha, index) => {
+  const linhas = autores.map(linha => {
     return (
-      <tr key={linha.nome - linha.livro - linha.preco}>
+      <tr key={linha.id}>
         <td>{linha.nome}</td>
         <td>{linha.livro}</td>
         <td>{linha.preco}</td>
@@ -24,7 +24,7 @@ const TableBody = ({autores, removeAutor}) => {
           <button
             className="waves-effect waves-light indigo lighten-2 btn"
             type="submit"
-            onClick={() => removeAutor(index)}
+            onClick={() => removeAutor(linha.id)}
           >
             Remover
           </button>

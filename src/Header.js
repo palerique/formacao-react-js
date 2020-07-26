@@ -10,7 +10,7 @@ const Header = () => {
         </LinkWrapper>
         <ul id="nav-mobile" className="right">
           <li>
-            <LinkWrapper to="/autores">Autores</LinkWrapper>
+            <LinkWrapper to="/nomes">Autores</LinkWrapper>
           </li>
           <li>
             <LinkWrapper to="/livros">Livros</LinkWrapper>
