@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Header from './Header';
-import DataTable from './DataTable';
-import ApiService from './ApiService';
-import PopUp from './PouUp';
+import Header from '../../Components/Header/Header';
+import DataTable from '../../Components/DataTable/DataTable';
+import ApiService from '../../utils/ApiService';
+import PopUp from '../../utils/PouUp';
 
 const SUCCESS = 'success';
 const ERROR = 'error';

@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import './App.css';
-import Tabela from './Tabela';
-import Formulario from './Formulario';
-import Header from './Header';
-import PopUp from './PouUp';
-import ApiService from './ApiService';
+import './Home.css';
+import ApiService from '../../utils/ApiService';
+import PopUp from '../../utils/PouUp';
+import Header from '../../Components/Header/Header';
+import Tabela from '../../Components/Tabela/Tabela';
+import Formulario from '../../Components/Formulario/Formulario';
 
 const SUCCESS = 'success';
 const ERROR = 'error';
 const DELETED = 'deleted';
 
-class App extends Component {
+class Home extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -82,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
