@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Header from '../../Components/Header/Header';
-import DataTable from '../../Components/DataTable/DataTable';
 import ApiService from '../../utils/ApiService';
 import PopUp from '../../utils/PouUp';
+import Tabela from '../../Components/Tabela/Tabela';
 
 const SUCCESS = 'success';
 const ERROR = 'error';
@@ -34,12 +34,13 @@ class Autores extends Component {
 
   render() {
     const {titulo, nomes} = this.state;
+    const campos = [{titulo: 'Autores', dado: 'nome'}];
     return (
       <>
         <Header />
         <div className="container">
           <h1>Página de Autores</h1>
-          <DataTable dados={nomes} titulo={titulo} colunas={['nome']} />
+          <Tabela dados={nomes} titulo={titulo} campos={campos} />
         </div>
       </>
     );

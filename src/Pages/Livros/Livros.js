@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Header from '../../Components/Header/Header';
-import DataTable from '../../Components/DataTable/DataTable';
 import ApiService from '../../utils/ApiService';
 import PopUp from '../../utils/PouUp';
+import Tabela from '../../Components/Tabela/Tabela';
 
 const SUCCESS = 'success';
 const ERROR = 'error';
@@ -34,12 +34,18 @@ class Livros extends Component {
 
   render() {
     const {titulo, livros} = this.state;
+    const campos = [
+      {
+        titulo: 'Livros',
+        dado: 'livro',
+      },
+    ];
     return (
       <>
         <Header />
         <div className="container">
           <h1>Página de Livros</h1>
-          <DataTable dados={livros} titulo={titulo} colunas={['livro']} />
+          <Tabela dados={livros} titulo={titulo} campos={campos} />
         </div>
       </>
     );

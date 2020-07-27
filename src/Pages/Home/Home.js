@@ -68,13 +68,19 @@ class Home extends Component {
   };
 
   render() {
+    const campos = [
+      {titulo: 'Autores', dado: 'nome'},
+      {titulo: 'Livros', dado: 'livro'},
+      {titulo: 'Preços', dado: 'preco'},
+    ];
+
     const {autores} = this.state;
     return (
       <>
         <Header />
         <div className="container mb-10">
           <h1>Casa do código</h1>
-          <Tabela autores={autores} removeAutor={this.removeAutor} />
+          <Tabela campos={campos} dados={autores} removeDados={this.removeAutor} />
           <Formulario escutadorDeSubmit={this.escutadorDeSubmit} />
         </div>
       </>
