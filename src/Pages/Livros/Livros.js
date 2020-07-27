@@ -13,7 +13,6 @@ class Livros extends Component {
 
     this.state = {
       livros: [],
-      titulo: 'Livros',
     };
   }
 

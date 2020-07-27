@@ -13,7 +13,6 @@ class Autores extends Component {
 
     this.state = {
       nomes: [],
-      titulo: 'Autores',
     };
   }
 
