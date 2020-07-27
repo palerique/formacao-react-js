@@ -7,6 +7,10 @@ import Header from './Header';
 import PopUp from './PouUp';
 import ApiService from './ApiService';
 
+const SUCCESS = 'success';
+const ERROR = 'error';
+const DELETED = 'deleted';
+
 class App extends Component {
   constructor(props, context) {
     super(props, context);
@@ -16,32 +20,51 @@ class App extends Component {
   }
 
   componentDidMount() {
-    ApiService.ListaAutores().then(res => {
-      const {autores} = this.state;
-      this.setState({autores: [...autores, ...res.data]});
-    });
+    ApiService.ListaAutores()
+      .then(res => ApiService.TrataErros(res))
+      .then(res => {
+        const {message, data} = res;
+        if (message === SUCCESS) {
+          const {autores} = this.state;
+          this.setState({autores: [...autores, ...data]});
+        }
+      })
+      .catch(() =>
+        PopUp.exibeMensagem(ERROR, 'Erro na comunicação com a API ao tentar listar os autores')
+      );
   }
 
   removeAutor = id => {
     const {autores} = this.state;
 
-    this.setState({
-      autores: autores.filter(autor => {
-        return autor.id !== id;
-      }),
+    const autoresAtualizado = autores.filter(autor => {
+      return autor.id !== id;
     });
-    PopUp.exibeMensagem('error', 'Autor removido com sucesso');
-    ApiService.RemoveAutor(id);
+
+    ApiService.RemoveAutor(id)
+      .then(res => ApiService.TrataErros(res))
+      .then(res => {
+        if (res.message === DELETED) {
+          this.setState({autores: [...autoresAtualizado]});
+          PopUp.exibeMensagem(ERROR, 'Autor removido com sucesso');
+        }
+      })
+      .catch(() =>
+        PopUp.exibeMensagem(ERROR, 'Erro na comunicação com a API ao tentar remover o autor')
+      );
   };
 
   escutadorDeSubmit = autor => {
     ApiService.CriaAutor(JSON.stringify(autor))
-      .then(res => res.data)
-      .then(autorRecebido => {
+      .then(res => ApiService.TrataErros(res))
+      .then(res => {
         const {autores} = this.state;
-        this.setState({autores: [...autores, autorRecebido]});
-        PopUp.exibeMensagem('success', 'Autor adicionado com sucesso');
-      });
+        this.setState({autores: [...autores, res.data]});
+        PopUp.exibeMensagem(SUCCESS, 'Autor adicionado com sucesso');
+      })
+      .catch(() =>
+        PopUp.exibeMensagem(ERROR, 'Erro na comunicação com a API ao tentar criar o autor')
+      );
   };
 
   render() {

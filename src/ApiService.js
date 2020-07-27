@@ -1,26 +1,32 @@
 const API_BASE_ADDRESS = 'http://localhost:8000/api/';
 const ApiService = {
   ListaAutores: () => {
-    return fetch(`${API_BASE_ADDRESS}autor`).then(res => res.json());
+    return fetch(`${API_BASE_ADDRESS}autor`);
   },
   CriaAutor: autor => {
     return fetch(`${API_BASE_ADDRESS}autor`, {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: autor,
-    }).then(res => res.json());
+    });
   },
   ListaNomes: () => {
-    return fetch(`${API_BASE_ADDRESS}autor/nome`).then(res => res.json());
+    return fetch(`${API_BASE_ADDRESS}autor/nome`);
   },
   ListaLivros: () => {
-    return fetch(`${API_BASE_ADDRESS}autor/livro`).then(res => res.json());
+    return fetch(`${API_BASE_ADDRESS}autor/livro`);
   },
   RemoveAutor: id => {
-    return fetch(`${API_BASE_ADDRESS}/autor/${id}`, {
+    return fetch(`${API_BASE_ADDRESS}autor/${id}`, {
       method: 'DELETE',
       Headers: {'content-type': 'application/json'},
-    }).then(res => res.json());
+    });
+  },
+  TrataErros: res => {
+    if (!res.ok) {
+      throw Error(res.responseText);
+    }
+    return res.json();
   },
 };
 export default ApiService;
