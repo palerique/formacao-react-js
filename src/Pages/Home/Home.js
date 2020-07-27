@@ -80,8 +80,8 @@ class Home extends Component {
         <Header />
         <div className="container mb-10">
           <h1>Casa do código</h1>
-          <Tabela campos={campos} dados={autores} removeDados={this.removeAutor} />
           <Formulario escutadorDeSubmit={this.escutadorDeSubmit} />
+          <Tabela campos={campos} dados={autores} removeDados={this.removeAutor} />
         </div>
       </>
     );

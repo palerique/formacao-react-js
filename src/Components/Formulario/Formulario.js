@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 import FormValidator from '../../utils/FormValidator';
 import PopUp from '../../utils/PouUp';
 
@@ -68,49 +70,39 @@ class Formulario extends Component {
     const {nome, livro, preco} = this.state;
     return (
       <form>
-        <div className="row">
-          <div className="input-field col s4">
-            <label className="input-field" htmlFor="nome">
-              Nome
-              <input
-                className="validate"
-                id="nome"
-                type="text"
-                name="nome"
-                value={nome}
-                onChange={this.escutadorDeInput}
-              />
-            </label>
-          </div>
-          <div className="input-field col s4">
-            <label className="input-field" htmlFor="livro">
-              Livro
-              <input
-                className="validate"
-                id="livro"
-                type="text"
-                name="livro"
-                value={livro}
-                onChange={this.escutadorDeInput}
-              />
-            </label>
-          </div>
-          <div className="input-field col s4">
-            <label className="input-field" htmlFor="preco">
-              Preço
-              <input
-                className="validate"
-                id="preco"
-                type="text"
-                name="preco"
-                value={preco}
-                onChange={this.escutadorDeInput}
-              />
-            </label>
-          </div>
-        </div>
-
-        <div className="col offset-s4 s4">
+        <Grid container spacing={2} alignItems="center">
+          <Grid className="col s4">
+            <TextField
+              id="nome"
+              label="Nome"
+              name="nome"
+              variant="outlined"
+              value={nome}
+              onChange={this.escutadorDeInput}
+            />
+          </Grid>
+          <Grid className="col s4">
+            <TextField
+              id="livro"
+              label="Livro"
+              name="livro"
+              variant="outlined"
+              value={livro}
+              onChange={this.escutadorDeInput}
+            />
+          </Grid>
+          <Grid className="col s4">
+            <TextField
+              id="preco"
+              label="Preco"
+              name="preco"
+              variant="outlined"
+              value={preco}
+              onChange={this.escutadorDeInput}
+            />
+          </Grid>
+        </Grid>
+        <Grid className="col offset-s4 s4">
           <button
             onClick={this.submitFormulario}
             className="btn waves-effect waves-light indigo lighten-2 right"
@@ -118,7 +110,7 @@ class Formulario extends Component {
           >
             Salvar
           </button>
-        </div>
+        </Grid>
       </form>
     );
   }
