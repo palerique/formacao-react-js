@@ -1,49 +1,46 @@
 import React from 'react';
-
-const TableHead = () => {
-  return (
-    <thead>
-      <tr>
-        <th>Autor</th>
-        <th>Livro</th>
-        <th>Preco</th>
-        <th>Remover</th>
-      </tr>
-    </thead>
-  );
-};
-
-const TableBody = ({autores, removeAutor}) => {
-  const linhas = autores.map(linha => {
-    return (
-      <tr key={linha.id}>
-        <td>{linha.nome}</td>
-        <td>{linha.livro}</td>
-        <td>{linha.preco}</td>
-        <td>
-          <button
-            className="waves-effect waves-light indigo lighten-2 btn"
-            type="submit"
-            onClick={() => removeAutor(linha.id)}
-          >
-            Remover
-          </button>
-        </td>
-      </tr>
-    );
-  });
-
-  return <tbody>{linhas}</tbody>;
-};
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
 
 function Tabela(props) {
   const {autores, removeAutor} = props;
 
   return (
-    <table className="centered highlight">
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>Autores</TableCell>
+          <TableCell>Livros</TableCell>
+          <TableCell>Preços</TableCell>
+          <TableCell>Remover</TableCell>
+        </TableRow>
+      </TableHead>
       <TableHead />
-      <TableBody autores={autores} removeAutor={removeAutor} />
-    </table>
+      <TableBody>
+        {autores.map(autor => (
+          <TableRow key={autor.id}>
+            <TableCell>{autor.nome}</TableCell>
+            <TableCell>{autor.livro}</TableCell>
+            <TableCell>{autor.preco}</TableCell>
+            <TableCell>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  removeAutor(autor.id);
+                }}
+              >
+                Remover
+              </Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }
 
